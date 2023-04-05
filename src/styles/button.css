@@ -1,0 +1,43 @@
+.button-login {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 1px solid #ff0000;
+  display: inline-block;
+  cursor: pointer;
+  color: #ff0000;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 25px;
+  text-decoration: none;
+}
+
+.button-login:hover {
+  background-color: transparent;
+  color: #ff0000;
+}
+.button-login:active {
+  position: relative;
+  top: 1px;
+}
+
+.button-regis {
+  background-color: #ff0000;
+  border-radius: 20px;
+  border: 1px solid #ff0000;
+  display: inline-block;
+  cursor: pointer;
+  color: #f7f7f7;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px 25px;
+  text-decoration: none;
+}
+
+.button-regis:hover {
+  background-color: #f0f5ed;
+  color: #ff0000;
+}
+.button-regis:active {
+  position: relative;
+  top: 1px;
+}
