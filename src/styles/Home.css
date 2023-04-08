@@ -1,9 +1,4 @@
-.bg {
-  background-image: "url(/img/bg-home.jpg)";
-}
-
 .Home-header {
-  background-color: #282c34;
   min-height: 200vh;
   display: flex;
   flex-direction: column;
@@ -23,21 +18,31 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .Movie-wrapper {
-  width: 500px;
+  width: 300px;
   background-color: antiquewhite;
   color: black;
 }
 
+.Movie-image {
+  border-radius: 2%;
+  width: 300px;
+}
+
 .Movie-search {
+  border-radius: 25px;
+  border-color: red;
   height: 48px;
-  font-size: 24px;
+  font-size: 18px;
+  color: black;
+  text-decoration: black;
   margin-bottom: 32px;
   padding: 16px;
-  width: 475px;
+  width: 400px;
+  background-color: transparent;
 }
 
 .Movie-title {

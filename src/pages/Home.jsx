@@ -2,9 +2,10 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Home.css";
+import "../styles/button.css";
 import ButtonLogin from "../components/ButtonLogin";
 import ButtonRegis from "../components/ButtonRegis";
-import SearchHome from "../components/SearchHome";
+// import SearchHome from "../components/SearchHome";
 import backgroundImage from "../styles/image.jpg";
 import { useEffect, useState } from "react";
 import { getMovieList, searchMovie } from "../api";
@@ -29,13 +30,13 @@ const Home = () => {
     return popularMovies.map((movie, i) => {
       return (
         <div className="Movie-wrapper" key={i}>
-          <div className="Movie-title">{movie.title}</div>
+          {/* <div className="Movie-title">{movie.title}</div> */}
           <img
             className="Movie-image"
             src={`${process.env.REACT_APP_BASEIMGURL}/${movie.poster_path}`}
           />
-          <div className="Movie-date">release : {movie.release_date}</div>
-          <div className="Movie-rate">{movie.vote_average}</div>
+          {/* <div className="Movie-date">release : {movie.release_date}</div>
+          <div className="Movie-rate">{movie.vote_average}</div> */}
         </div>
       );
     });
@@ -48,28 +49,39 @@ const Home = () => {
           backgroundImage: `url(${backgroundImage})`,
         }}
       >
-        <Container>
+        <Container
+          style={{
+            minHeight: "600px",
+          }}
+        >
           <Row>
             <Col className="mt-1">
-              <h1 style={{ color: "red" }}>Movielist</h1>
+              <h1 style={{ color: "red", fontSize: "50px" }}>Movielist</h1>
             </Col>
             <Col className="mt-3">
-              <SearchHome />
+              <input
+                placeholder="What do you want to watch?"
+                className="Movie-search"
+                onChange={({ target }) => search(target.value)}
+              />
             </Col>
             <Col
               className="mt-3"
-              style={{ display: "flex", justifyContent: "end" }}
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                alignItems: "start",
+              }}
             >
               <ButtonLogin />
-
               <ButtonRegis />
             </Col>
           </Row>
 
           <Row>
             <Col style={{ paddingTop: "6vw" }}>
-              <h1 style={{ color: "white", fontSize: "4vw" }}>
-                Doctor Strange in the Multiverse of Madness
+              <h1 style={{ color: "white", fontSize: "70px" }}>
+                Doctor Strange in the <br /> Multiverse of Madness
               </h1>
               <h6
                 style={{
@@ -79,32 +91,38 @@ const Home = () => {
                 }}
               >
                 After encountering a girl with the power to traverse the
-                multiverse, Stephen Strange turns to Wanda Maximoff for advice
-                and help with fighting off the monstrous and mysterious entity
-                that is on the girl's trail
+                multiverse,
+                <br /> Stephen Strange turns to Wanda Maximoff for advice and
+                help with <br /> fighting off the monstrous and mysterious
+                entity that is on the girl's trail
               </h6>
+              <button className="button-trailer">WATCH TRAILER</button>
             </Col>
-
-            <Col></Col>
-          </Row>
-
-          <Row>
-            <div className="App">
-              <header className="App-header">
-                <h1>Movie List</h1>
-                <input
-                  placeholder="What do you want to watch?"
-                  className="Movie-search"
-                  onChange={({ target }) => search(target.value)}
-                />
-                <div className="Movie-container">
-                  <PopularMovieList />
-                </div>
-              </header>
-            </div>
           </Row>
         </Container>
       </div>
+
+      <Container>
+        <Row>
+          <div className="App">
+            <header className="App-header">
+              <h1
+                style={{
+                  textAlign: "start",
+                  marginTop: "10px",
+                  marginBottom: "15px",
+                  fontSize: "30px",
+                }}
+              >
+                Popular Movie
+              </h1>
+              <div className="Movie-container">
+                <PopularMovieList />
+              </div>
+            </header>
+          </div>
+        </Row>
+      </Container>
     </>
   );
 };
