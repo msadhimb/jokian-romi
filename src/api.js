@@ -11,11 +11,12 @@ export const getMovieList = async () => {
   return movie.data.results;
 };
 
-export const getDetailList = async () => {
-  const detail = await axios.get(
-    `${baseUrl}/movie/{movie_id}?page=1&api_key=${apiKey}`
+export const getMovieGenre = async () => {
+  const genre = await axios.get(
+    `${baseUrl}/genre/movie/list?page=1&api_key=${apiKey}`
   );
-  return detail.data.results;
+  console.log(genre.data.genres);
+  return genre.data.genres;
 };
 
 export const searchMovie = async (q) => {
