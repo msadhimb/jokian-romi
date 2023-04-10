@@ -6,9 +6,10 @@ import "../styles/button.css";
 import ButtonLogin from "../components/ButtonLogin";
 import ButtonRegis from "../components/ButtonRegis";
 // import SearchHome from "../components/SearchHome";
-import backgroundImage from "../styles/image.jpg";
+import backgroundImage from "../styles/image2.jpg";
 import { useEffect, useState } from "react";
 import { getMovieList, searchMovie } from "../api";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -34,6 +35,8 @@ const Home = () => {
           <img
             className="Movie-image"
             src={`${process.env.REACT_APP_BASEIMGURL}/${movie.poster_path}`}
+            as={Link}
+            to={`/posts/${movie.id}`}
           />
           {/* <div className="Movie-date">release : {movie.release_date}</div>
           <div className="Movie-rate">{movie.vote_average}</div> */}
