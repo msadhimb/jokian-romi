@@ -11,6 +11,13 @@ export const getMovieList = async () => {
   return movie.data.results;
 };
 
+export const getMovieDetail = async (id) => {
+  const detail = await axios.get(
+    `${baseUrl}/movie/${id}?api_key=${apiKey}&language=en-US`
+  );
+  return detail.data;
+};
+
 export const getMovieGenre = async () => {
   const genre = await axios.get(
     `${baseUrl}/genre/movie/list?page=1&api_key=${apiKey}`
